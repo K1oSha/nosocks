@@ -1,13 +1,11 @@
 <?php
 
   $config=[
-      'defaultRoute' => 'main',
       'id' =>'school',
       'basePath' => realpath(__DIR__.'/../'),
       'bootstrap' =>
       [
-          'debug',
-          'gii'
+          'debug'
       ],
       'timeZone' => 'Asia/Vladivostok',
       'components' =>
@@ -15,8 +13,8 @@
         'urlManager'=>
             [
                 'class' => 'codemix\localeurls\UrlManager',
-                'enablePrettyUrl' => true, //делаем красивые урл адреса
-                'showScriptName' => false,  //убираем из адреса index.php
+                // 'enablePrettyUrl' => true, //делаем красивые урл адреса
+                // 'showScriptName' => false,  //убираем из адреса index.php
                 //'enableDefaultLanguageUrlCode' => true,
 		        'rules' => 
 	            [
@@ -28,36 +26,35 @@
         'request' => 
            [
               'cookieValidationKey' => 'vsemprivetktoetochitaet',
-              'parsers' =>
-                [
-                  'application/json' => 'yii\web\JsonParser', //возможность сделать запрос в JSON 
-                ],
-		        'baseUrl' => ''
+              // 'parsers' =>
+              //   [
+              //     'application/json' => 'yii\web\JsonParser', //возможность сделать запрос в JSON 
+              //   ],
+		        // 'baseUrl' => ''
           ],
         'db' =>require (__DIR__. '/db.php'),
-        'user' => 
-            [
-              'identityClass' => 'app\models\UserIdentity', //Подключаем реализацию аутентификации
-              'enableAutoLogin' => true, //Показываем что используем систему аутологина
-                'loginUrl'=>['/user/login']
-            ],
+        // 'user' => 
+        //     [
+        //       'identityClass' => 'app\models\UserIdentity', //Подключаем реализацию аутентификации
+        //       'enableAutoLogin' => true, //Показываем что используем систему аутологина
+        //         'loginUrl'=>['/user/login']
+        //     ],
         'i18n' =>
         [
         ],
-           'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-               'cache' => 'cache'
-                             ],
+          //  'authManager' => [
+          //   'class' => 'yii\rbac\DbManager',
+          //      'cache' => 'cache'
+          //                    ],
           'cache' => [
               'class' => 'yii\caching\FileCache',  // Подключаем файловое кэширование данных
           ],
-          'errorHandler'=>[
-            'errorAction'=>'site/error',
-          ],
+          // 'errorHandler'=>[
+          //   'errorAction'=>'site/error',
+          // ],
       ],
      'modules' => [
          'debug' =>'yii\debug\Module',//подключаю дебаг
-         'gii'=>'yii\gii\Module',
      ]
  ];
 
